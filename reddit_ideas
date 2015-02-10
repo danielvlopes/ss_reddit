@@ -1,0 +1,33 @@
+markdown editor
+search bar
+login
+
+---------
+
+Post
+ title
+ url
+ text
+ created_at
+ thumbnail_url
+ user_id
+ votes
+
+Users
+  email
+  password
+  remember_me
+
+Comments
+  permalink
+  text
+  user_id
+  votes
+  created_at
+
+--------
+
+  short_url for post
+  scrapping images from source
+  nesting comments
+  subreddits

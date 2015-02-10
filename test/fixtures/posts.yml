@@ -2,6 +2,7 @@
 
 one:
   title: MyString
+<<<<<<< HEAD
   url: MyString
   text: MyText
 
@@ -9,3 +10,12 @@ two:
   title: MyString
   url: MyString
   text: MyText
+=======
+  thumbnail_url: MyString
+  user_id: 
+
+two:
+  title: MyString
+  thumbnail_url: MyString
+  user_id: 
+>>>>>>> 690a82d0333f0ef4ac3b1a47a9ea5fa6686cdd01

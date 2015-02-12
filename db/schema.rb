@@ -44,8 +44,7 @@ ActiveRecord::Schema.define(version: 20150210201912) do
     t.string   "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-
-  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+  end
 
   create_table "votes", force: :cascade do |t|
     t.integer  "user_id"

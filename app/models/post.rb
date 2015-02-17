@@ -1,4 +1,4 @@
 class Post < ActiveRecord::Base
-  belongs_to :author, foreign_key: :user_id, class_name: "User"
+  belongs_to :user
   has_many :votes, as: :votable
 end

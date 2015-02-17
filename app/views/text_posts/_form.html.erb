@@ -1,0 +1,8 @@
+<%= form_for(@text_post) do |f| %>
+
+  <%= render 'error_messages', :resource => @text_post %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

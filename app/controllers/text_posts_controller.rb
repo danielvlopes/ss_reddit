@@ -1,12 +1,6 @@
 class TextPostsController < ApplicationController
   before_action :set_text_post, only: [:show, :edit, :update, :destroy]
 
-  # GET /text_posts
-  # GET /text_posts.json
-  def index
-    @text_posts = TextPost.all
-  end
-
   # GET /text_posts/1
   # GET /text_posts/1.json
   def show
@@ -69,6 +63,6 @@ class TextPostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def text_post_params
-      params[:text_post]
+      params.require(:text_post).permit(:title, :url, :text)
     end
 end

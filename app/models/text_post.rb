@@ -1,3 +1,3 @@
 class TextPost < Post
-  validates :text => :presence => true
+  validates :text, :presence => true
 end

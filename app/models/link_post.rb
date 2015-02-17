@@ -1,3 +1,3 @@
 class LinkPost < Post
-  validates :link => :presence => true
+  validates :link, :presence => true
 end

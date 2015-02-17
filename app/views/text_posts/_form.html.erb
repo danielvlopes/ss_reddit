@@ -1,17 +1,11 @@
 <%= form_for(@text_post) do |f| %>
-  <% if @text_post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@text_post.errors.count, "error") %> prohibited this text_post from being saved:</h2>
+  <%#= error_messages_for @text_post %>
 
-      <ul>
-      <% @text_post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render "shared/error_messages", resource: @text_post %>
 
   <div class="actions">
+
+
     <%= f.submit %>
   </div>
 <% end %>

@@ -4,6 +4,7 @@ class TextPostsController < ApplicationController
   # GET /text_posts/1
   # GET /text_posts/1.json
   def show
+    @text_post = TextPost.find(params[:id])
   end
 
   # GET /text_posts/new

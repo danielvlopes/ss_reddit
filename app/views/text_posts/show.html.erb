@@ -1,4 +1,13 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>Title:</strong>
+  <%= @text_post.title %>
+</p>
+
+<p>
+  <%= markdown @text_post.text %>
+</p>
+
 <%= link_to 'Edit', edit_text_post_path(@text_post) %> |
-<%= link_to 'Back', text_posts_path %>
+<%= link_to 'Back', posts_path %>

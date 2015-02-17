@@ -63,6 +63,6 @@ class TextPostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def text_post_params
-      params[:text_post]
+      params.require(:text_post).permit(:title, :url, :text)
     end
 end

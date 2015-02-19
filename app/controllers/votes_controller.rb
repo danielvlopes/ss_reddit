@@ -5,10 +5,15 @@ class VotesController < ApplicationController
     @vote = @post.votes.new
     @vote.user = current_user
     @vote.save
+    flash[:notice] = "You have created a vote"
     redirect_to :back
   end
 
-  def update
+  def destroy
+    @vote = Vote.find(params[:id])
+    @vote.destroy
+    flash[:notice] = "You have deleted a vote"
+    redirect_to :back
   end
 
 end

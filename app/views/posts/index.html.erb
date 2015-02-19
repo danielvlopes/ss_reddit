@@ -12,12 +12,13 @@
         <td>
           <%= link_to post do %>
             <%= post.title %>
+            (<%= post.votes.count %> likes)
           <% end %>
         </td>
         <td><%= post.url %></td>
         <td><%= post.text %></td>
-        <td><%#= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%#= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Like', post_votes_path(:post_id => post.id), :method => 'post' %></td>
+        <td><%#= link_to 'Unlike', post_vote_path(:post_id => post.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

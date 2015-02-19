@@ -20,6 +20,7 @@ class TextPostsController < ApplicationController
   # POST /text_posts.json
   def create
     @text_post = TextPost.new(text_post_params)
+    @text_post.user = current_user
 
     respond_to do |format|
       if @text_post.save

@@ -5,6 +5,7 @@ class VotesController < ApplicationController
     @vote = @post.votes.new
     @vote.user = current_user
     @vote.save
+    redirect_to :back
   end
 
   def update

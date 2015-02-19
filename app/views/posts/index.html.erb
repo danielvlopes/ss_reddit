@@ -18,19 +18,24 @@
     <% @posts.each do |post| %>
       <tr>
         <td><%= post.title %></td>
+        <td><%= post.url %></td>
+        <td><%= post.text %></td>
+        <td><%= post.thumbnail_url %></td>
         <td><b><%= "Likes: #{@likes}" %></b></td>
         <td><%#= link_to 'Show', post %></td>
         <td><%#= link_to 'Edit', edit_post_path(post) %></td>
         <td><%#= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td>
-          <%= form_for @vote do |f| %>
+          <%= form_for Vote.new(votable_id: post.id) do |f| %>
             <%= f.hidden_field :like, value: 1 %>
+            <%= f.hidden_field :votable_id %>
             <%= f.submit "+1" %>
           <% end %>
         </td>
         <td>
-          <%= form_for @vote do |f| %>
+          <%= form_for Vote.new(votable_id: post.id) do |f| %>
             <%= f.hidden_field :like, value: -1 %>
+            <%= f.hidden_field :votable_id %>
             <%= f.submit "-1" %>
           <% end %>
         </td>

@@ -69,6 +69,6 @@ class LinkPostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def link_post_params
-      params[:link_post]
+      params.require(:link_post).permit(:title, :url, :thumbnail_url)
     end
 end

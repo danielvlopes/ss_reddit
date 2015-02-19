@@ -9,6 +9,9 @@ class VotesController < ApplicationController
   end
 
   def destroy
+    @vote = Vote.find(params[:id])
+    @vote.destroy
+    redirect_to :back
   end
 
 end

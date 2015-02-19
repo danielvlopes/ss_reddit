@@ -22,8 +22,11 @@
         <td><%= post.title %></td>
         <td><%= post.user.email %></td>
         <td><%= post.votes.count %></td>
+        <% if vote = Vote.find_by(user: current_user, votable: post) %>
+        <td><%= link_to "De-vote", post_vote_url(post, vote), method: "delete" %></td>
+        <% else %>
         <td><%= link_to "Upvote", post_votes_url(post), method: "post" %></td>
-        <td><%= link_to "De-vote", post_votes_url(post), method: "destroy" %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

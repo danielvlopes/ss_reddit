@@ -11,6 +11,7 @@
     <tr>
       <th>Title</th>
       <th>Author</th>
+      <th># Votes</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,7 +21,9 @@
       <tr>
         <td><%= post.title %></td>
         <td><%= post.user.email %></td>
-        <td><%#= link_to "like" </td>
+        <td><%= post.votes.count %></td>
+        <td><%= link_to "Upvote", post_votes_url(post), method: "post" %></td>
+        <td><%= link_to "De-vote", post_votes_url(post), method: "destroy" %></td>
       </tr>
     <% end %>
   </tbody>

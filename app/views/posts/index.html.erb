@@ -20,7 +20,13 @@
       <tr>
         <td><%= post.title %></td>
         <td><%= post.user.email %></td>
-        <td><%#= link_to "like" </td>
+        <td>
+          <% if post.votes.where(user_id: current_user.id).count == 0 %>
+            <%= link_to "like", post_votes_path(post), method: :post %>
+          <% else %>
+            <%= link_to "unlike", "#", method: :delete %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

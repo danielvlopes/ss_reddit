@@ -18,13 +18,22 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td><%= post.title %></td>
-        <td><%= post.user.email %></td>
         <td>
-          <% if post.votes.where(user_id: current_user.id).count == 0 %>
-            <%= link_to "like", post_votes_path(post), method: :post %>
+          <%= post.score %>
+          <%= post.title %>
+        </td>
+        <td>
+          <%= post.user.email %>
+        </td>
+        <td>
+          <% vote = post.vote_by(current_user) %>
+          <% if vote.present? %>
+            <%= "You voted:" %>
+            <%= (vote.score > 0 ? "Good" : "Bad") %>
           <% else %>
-            <%= link_to "unlike", "#", method: :delete %>
+            <%= link_to "Up Vote", post_votes_path(post, score: 1), method: :post %>
+            or
+            <%= link_to "Down Vote", post_votes_path(post, score: -1), method: :post %>
           <% end %>
         </td>
       </tr>
@@ -32,6 +41,6 @@
   </tbody>
 </table>
 
-<br>
+<p><%#= link_to 'New Post', new_post_path %></p>
 
-<%#= link_to 'New Post', new_post_path %>
+

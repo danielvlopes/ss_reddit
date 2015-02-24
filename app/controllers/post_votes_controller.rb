@@ -5,21 +5,10 @@ class PostVotesController < ApplicationController
   def create
     @vote = @post.votes.build
     @vote.user = current_user
+    @vote.score = params[:score]
 
     if @vote.save
       flash[:notice] = "Vote received"
-    else
-      flash[:error] = "Something bad happened"
-    end
-
-    redirect_to posts_path
-  end
-
-  def destroy
-    @vote = current_user.votes.where(post: @post)
-
-    if @vote.save
-      flash[:notice] = "Vote removed"
     else
       flash[:error] = "Something bad happened"
     end

@@ -4,4 +4,13 @@ class Post < ActiveRecord::Base
 
   validates :user, presence: true
   validates :title, presence: true
+
+  def vote_by(user)
+    @vote_by ||= votes.where(user_id: user.id).limit(1).first
+  end
+
+  def score
+    votes.sum(:score)
+  end
+
 end

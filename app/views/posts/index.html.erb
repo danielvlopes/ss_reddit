@@ -2,19 +2,17 @@
 
 <h1>Listing Posts</h1>
 
+<hr/>
+
 <p>
-  <%= link_to "Add text post", new_text_post_path %>
+  <%= link_to "Submit a new text post", new_text_post_path %>
+  <br/>
+  <%= link_to "Submit a new link", new_link_post_path %>
 </p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Author</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<hr/>
 
+<table width="800px">
   <tbody>
     <% @posts.each do |post| %>
       <tr>

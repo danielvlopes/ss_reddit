@@ -1,0 +1,18 @@
+<%= form_for(@link_post) do |f| %>
+  <%= render 'shared/error_messages', :resource => @link_post %>
+
+
+  <fieldset>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :url %>
+    <%= f.url_field :url %>
+  </fieldset>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

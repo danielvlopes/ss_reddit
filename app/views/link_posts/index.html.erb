@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Link Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @link_posts.each do |link_post| %>
+      <tr>
+        <td><%= link_to 'Show', link_post %></td>
+        <td><%= link_to 'Edit', edit_link_post_path(link_post) %></td>
+        <td><%= link_to 'Destroy', link_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New link post', new_link_post_path %>

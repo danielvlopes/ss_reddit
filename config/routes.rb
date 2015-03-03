@@ -7,10 +7,7 @@ Rails.application.routes.draw do
 
   resources :posts, only: [:index] do
     resources :votes, controller: "post_votes"
+    resources :comments, only: [:create, :destroy]
   end
-
-  # resources :comments do
-  #   resources :votes, controller: "comment_votes"
-  # end
 
 end

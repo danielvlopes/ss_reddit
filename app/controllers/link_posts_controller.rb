@@ -3,6 +3,7 @@ class LinkPostsController < ApplicationController
 
   def show
     @link_post = LinkPost.find(params[:id])
+    @comments = @link_post.comments
   end
 
   def new

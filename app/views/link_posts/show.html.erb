@@ -1,9 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
+<h1>
+  <%= @link_post.score %>
   <%= @link_post.title %>
+</h1>
+
+<p>
+  <%= link_to @link_post.url, @link_post.url, target: "_blank" %>
 </p>
 
-<%= link_to 'Edit', edit_link_post_path(@link_post) %> |
+<% if current_user == @link_post.user %>
+  <%= link_to 'Edit', edit_link_post_path(@link_post) %> |
+<% end %>
+
 <%= link_to 'Back', posts_path %>

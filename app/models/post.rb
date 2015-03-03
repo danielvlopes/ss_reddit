@@ -13,5 +13,4 @@ class Post < ActiveRecord::Base
   def score
     votes.sum(:score)
   end
-
 end

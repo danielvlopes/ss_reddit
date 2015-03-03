@@ -26,27 +26,30 @@ ActiveRecord::Schema.define(version: 20150303205951) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
+    t.string   "url"
+    t.text     "text"
     t.string   "thumbnail_url"
     t.integer  "user_id"
+    t.integer  "votable_id"
+    t.string   "votable_type"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.string   "type"
-    t.text     "text"
-    t.string   "url"
   end
 
-  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+  add_index "posts", ["votable_type", "votable_id"], name: "index_posts_on_votable_type_and_votable_id"
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",      null: false
+    t.string   "email"
+    t.string   "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "votes", force: :cascade do |t|
+    t.integer  "user_id"
     t.integer  "votable_id"
     t.string   "votable_type"
-    t.integer  "user_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.boolean  "like"

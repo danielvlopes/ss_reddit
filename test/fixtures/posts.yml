@@ -2,20 +2,10 @@
 
 one:
   title: MyString
-<<<<<<< HEAD
-  url: MyString
-  text: MyText
-=======
->>>>>>> daniel
   thumbnail_url: MyString
   user_id: 
 
 two:
   title: MyString
-<<<<<<< HEAD
-  url: MyString
-  text: MyText
-=======
->>>>>>> daniel
   thumbnail_url: MyString
   user_id: 

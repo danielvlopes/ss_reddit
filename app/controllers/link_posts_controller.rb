@@ -1,30 +1,20 @@
 class LinkPostsController < ApplicationController
   before_action :set_link_post, only: [:show, :edit, :update, :destroy]
 
-  # GET /link_posts
-  # GET /link_posts.json
-  def index
-    @link_posts = LinkPost.all
-  end
-
-  # GET /link_posts/1
-  # GET /link_posts/1.json
   def show
+    @link_post = LinkPost.find(params[:id])
   end
 
-  # GET /link_posts/new
   def new
     @link_post = LinkPost.new
   end
 
-  # GET /link_posts/1/edit
   def edit
   end
 
-  # POST /link_posts
-  # POST /link_posts.json
   def create
     @link_post = LinkPost.new(link_post_params)
+    @link_post.user = current_user
 
     respond_to do |format|
       if @link_post.save
@@ -37,8 +27,6 @@ class LinkPostsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /link_posts/1
-  # PATCH/PUT /link_posts/1.json
   def update
     respond_to do |format|
       if @link_post.update(link_post_params)
@@ -51,8 +39,6 @@ class LinkPostsController < ApplicationController
     end
   end
 
-  # DELETE /link_posts/1
-  # DELETE /link_posts/1.json
   def destroy
     @link_post.destroy
     respond_to do |format|
@@ -69,6 +55,6 @@ class LinkPostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def link_post_params
-      params.require(:link_post).permit(:title, :url, :thumbnail_url)
+      params.require(:link_post).permit(:title, :url)
     end
 end

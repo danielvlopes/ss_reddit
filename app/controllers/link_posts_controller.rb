@@ -1,5 +1,5 @@
 class LinkPostsController < ApplicationController
-  before_action :set_link_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_link_post, only: [:edit, :update, :destroy]
 
   def show
     @link_post = LinkPost.find(params[:id])
@@ -50,7 +50,7 @@ class LinkPostsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_link_post
-      @link_post = LinkPost.find(params[:id])
+      @link_post = current_user.posts.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -5,5 +5,13 @@
   <%= @link_post.title %>
 </p>
 
-<%= link_to 'Edit', edit_link_post_path(@link_post) %> |
+<% if current_user == @link_post.user %>
+  <%= link_to 'Edit', edit_link_post_path(@link_post) %> |
+<% end %>
 <%= link_to 'Back', posts_path %>
+
+<%= render 'comments/form', post: @link_post %>
+
+<% @link_post.comments.each do |comment| %>
+  <p><%= comment.text %></p>
+<% end %>

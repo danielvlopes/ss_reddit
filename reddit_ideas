@@ -11,7 +11,12 @@ Post
  created_at
  thumbnail_url
  user_id
- votes
+
+Votes
+  user_id
+  votable_id
+
+# http://guides.rubyonrails.org/association_basics.html#polymorphic-associations
 
 Users
   email

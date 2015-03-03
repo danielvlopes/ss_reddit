@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
   <%= @text_post.title %>
 </p>
 
@@ -9,5 +8,8 @@
   <%= markdown @text_post.text %>
 </p>
 
-<%= link_to 'Edit', edit_text_post_path(@text_post) %> |
+<% if current_user == @text_post.user %>
+  <%= link_to 'Edit', edit_text_post_path(@text_post) %> |
+<% end %>
+
 <%= link_to 'Back', posts_path %>

@@ -17,8 +17,10 @@
     <% @posts.each do |post| %>
       <tr>
         <td>
-          <%= post.score %>
-          <%= post.title %>
+          <%= link_to post do %>
+            <%= post.score %>
+            <%= post.title %>
+          <% end %>
         </td>
         <td>
           <%= post.user.email %>

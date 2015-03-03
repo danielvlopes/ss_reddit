@@ -1,5 +1,5 @@
 class TextPostsController < ApplicationController
-  before_action :set_text_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_text_post, only: [:edit, :update, :destroy]
 
   # GET /text_posts/1
   # GET /text_posts/1.json
@@ -60,7 +60,7 @@ class TextPostsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_text_post
-      @text_post = TextPost.find(params[:id])
+      @text_post = current_user.posts.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

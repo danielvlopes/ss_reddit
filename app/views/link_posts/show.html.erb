@@ -19,10 +19,8 @@
 
 <%= render "comments/form", post: @link_post, comment: Comment.new %>
 
-<% @comments.each do |comment| %>
-  <p>
-    <%= markdown comment.text %>
-  </p>
-
-  <hr/>
-<% end %>
+<div id="comments">
+  <% @comments.each do |comment| %>
+    <%= render comment %>
+  <% end %>
+</div>

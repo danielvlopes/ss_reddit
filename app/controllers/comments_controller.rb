@@ -4,12 +4,8 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @post.comments.new(comment_params)
-
-    if @comment.save
-      redirect_to @post, notice: 'Comment was successfully created.'
-    else
-      render "post/show"
-    end
+    @comment.user = current_user
+    @comment.save
   end
 
   def destroy

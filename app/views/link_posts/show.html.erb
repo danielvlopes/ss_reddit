@@ -17,7 +17,7 @@
 
 <hr/>
 
-<%= render "comments/form", post: @link_post %>
+<%= render "comments/form", post: @link_post, comment: Comment.new %>
 
 <% @comments.each do |comment| %>
   <p>

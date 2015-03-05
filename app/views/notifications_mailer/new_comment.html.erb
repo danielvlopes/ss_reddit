@@ -1,0 +1,14 @@
+<h1>NotificationsMailer#new_comment</h1>
+
+<p>
+  <%= @greeting %>, <%= @comment.post.user.email %>
+</p>
+
+<p>
+  You've got a new comment from <%= @comment.user.email %> on your post: <%= @comment.text %><br />
+  Check it out the full post: <%= link_to @comment.post.title, "http://localhost:3000#{link_post_path(@comment.post)}" %>
+
+  Sincerely,
+
+  The Reddit Team
+</p>

@@ -12,8 +12,6 @@
 <% end %>
 <%= link_to 'Back', posts_path %>
 
-<%= render 'comments/form', post: @text_post %>
+<%= render 'comments/form', post: @text_post, comment: Comment.new %>
 
-<% @text_post.comments.each do |comment| %>
-  <p><%= comment.text %></p>
-<% end %>
+<%= render 'comments/comments', post: @text_post %>

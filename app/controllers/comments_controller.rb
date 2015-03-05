@@ -4,11 +4,18 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @post.comments.new(comment_params)
+    @comment.user = current_user
 
-    if @comment.save
-      redirect_to @post, notice: 'Comment was successfully created.'
-    else
-      redirect_to @post, notice: 'Something went wrong.'
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to @comment, notice: 'Link post was successfully created.' }
+        format.json { render :show, status: :created, location: @comment }
+        format.js
+      else
+        format.html { render :new }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+        format.js
+      end
     end
   end
 

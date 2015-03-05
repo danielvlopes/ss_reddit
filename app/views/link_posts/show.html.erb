@@ -10,8 +10,6 @@
 <% end %>
 <%= link_to 'Back', posts_path %>
 
-<%= render 'comments/form', post: @link_post %>
+<%= render 'comments/form', post: @link_post, comment: Comment.new %>
 
-<% @link_post.comments.each do |comment| %>
-  <p><%= comment.text %></p>
-<% end %>
+<%= render 'comments/comments', post: @link_post %>
